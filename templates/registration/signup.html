@@ -6,9 +6,10 @@
 {% endblock title %}
 
 {% block content %}
-    <form action="" method="post">
+    <form action="" method="post" class="container mt-3">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit"> Sign Up </button>
     </form>
+    <p class="container mt-3"><a  href="{% url 'login' %}" >Have account? Login</a></p>
 {% endblock content %}
