@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+
+{% block title %} افزودن کتاب {{ book.title }} {% endblock title %}
+
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+        <div class="container m-3">
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success"> اضافه کردن </button>
+            <br>
+            <a href="{% url 'book_list' %}">لیست تمام کتاب ها</a>
+            </div>
+    </form>
+
+
+
+
+
+{% endblock content %}
