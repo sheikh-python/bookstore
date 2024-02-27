@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+
+{% block title %} حذف کتاب {{ book.title }} {% endblock title %}
+
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+        <div class="container m-3">
+            <h1>حذف کتاب {{ book.title }}</h1>
+            <p> آیا از حذف کتاب {{ book.title }} اطمینان دارید ؟</p>
+            <input type="submit" class="btn btn-danger" value="بله حذفش کن!">
+        </div>
+    </form>
+
+{% endblock content %}
