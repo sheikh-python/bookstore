@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% block title %} جزئیات کتاب {{ book.title }} {% endblock title %}
+
+{% block content %}
+    <h1> {{ book.title }} </h1>
+    <p>  {{ book.description }} </p>
+    <h3> {{ book.author }} </h3>
+    <h3> {{ book.price }} </h3>
+    <br>
+    <a href="{% url 'book_list' %}">لیست تمام کتاب ها</a>
+
+{% endblock content %}
