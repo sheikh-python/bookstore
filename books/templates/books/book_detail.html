@@ -1,5 +1,6 @@
 {% extends '_base.html' %}
 
+
 {% block title %} جزئیات کتاب {{ book.title }} {% endblock title %}
 
 {% block content %}
@@ -8,8 +9,12 @@
     <h3> {{ book.author }} </h3>
     <h3> {{ book.price }} </h3>
     <br>
-    <a href="{% url 'book_update' book.id%}"><button type="submit" class="btn btn-info">ویرایش</button></a>
-    <a href="{% url 'book_delete' book.id%}"><button type="submit" class="btn btn-danger">حذف</button></a>
+    <a href="{% url 'book_update' book.id %}">
+        <button type="submit" class="btn btn-info">ویرایش</button>
+    </a>
+    <a href="{% url 'book_delete' book.id %}">
+        <button type="submit" class="btn btn-danger">حذف</button>
+    </a>
     <br>
     <a href="{% url 'book_list' %}">لیست تمام کتاب ها</a>
 
