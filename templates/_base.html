@@ -18,21 +18,29 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-info" dir="rtl">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <img src="icons/book.png" alt="" height="30"
+            <img src="{% static 'icons/book.png' %}" alt="" height="30"
                  class="d-inline-block align-text-top">
         </a>
-        <a class="navbar-brand mx-3" href="#">کتاب یار</a>
+        <a class="navbar-brand mx-3" href="{% url 'book_list' %}">داروگ</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">خانه</a>
-                <a class="nav-link" href="#">اضافه کردن کتاب</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'book_list' %}">خانه</a>
+                <a class="nav-link" href="{% url 'book_create' %}">اضافه کردن کتاب</a>
             </div>
         </div>
-        <div class="mx-2 text-white">خوش آمدی محمدهادی | <a class="link-light text-decoration-none" href="#">خروج</a></div>
+        {% if user.is_authenticated %}
+            <div class="mx-2 text-white">خوش آمدی {{ user.username }}
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-info"> خروج</button>
+                    </form>
+            </div>
+        {% endif %}
+
     </div>
 </nav>
 

@@ -1,17 +1,37 @@
 {% extends '_base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %} افزودن کتاب {{ book.title }} {% endblock title %}
 
 {% block content %}
-    <form action="" method="post">
-    {% csrf_token %}
-        <div class="container m-3">
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-success"> اضافه کردن </button>
-            <br>
-            <a href="{% url 'book_list' %}">لیست تمام کتاب ها</a>
+    <div class="container mt-4" dir="rtl">
+        <div class="row">
+            <div class="col-9">
+                <div class="card shadow my-3">
+                    <h5 class="card-header bg-success text-light px-5">فرم</h5>
+                    <div class="px-5 pt-3 pb-5">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                                {{ form|crispy }}
+                            <button type="submit" class="btn btn-success mt-2">ذخیره</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-    </form>
+            <div class="col-3">
+
+                <div class="card my-3 shadow">
+                    <h5 class="card-header bg-warning text-light">راهنما</h5>
+                    <div class="card-body">
+                        <p class="card-text">
+                            اطلاعات کتاب را در فرم این صفحه وارد کنید و سپس بر روی دکمه ذخیره کلیک کنید.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
