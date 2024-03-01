@@ -3,25 +3,27 @@
 {% block title %} لیست کتاب ها {% endblock title %}
 
 {% block content %}
-    {% for book in books %}
-        <div class="card m-2" style="max-width: 45%">
-            <div class="row g-0 h-100" dir="rtl">
-                <div class="col-md-4">
-                    <img src="https://newcdn.fidibo.com/images/books/69249_94233_normal.jpg"
-                         class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8 h-100">
-                    <div class="d-flex flex-column justify-content-between h-100">
-                        <div class="card-body">
-                            <h3 class="card-title"><strong>{{ book.title }} </strong></h3>
-                            <p class="card-text pt-3">{{ book.description|truncatewords:15 }}</p>
-                            <p class="text-muted">نویسنده: {{ book.author }}</p>
+    <div class="container mt-4">
+        <div class="row flex-row-reverse justify-content-md-center">
+            {% for book in books %}
+                <div class="card m-2" style="max-width: 45%">
+                    <div class="row g-0 h-100" dir="rtl">
+                        <div class="col-md-4">
+                            <img src="https://cdn.fidibo.com/phoenixpub/content/7447ae49-20e6-49d5-9454-5e333926391b/f1888de0-4d0f-49df-96a2-55826e0e7923.jpg"
+                                 class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8 h-100">
+                            <div class="d-flex flex-column justify-content-between h-100">
+                                <div class="card-body">
+                                    <a href="{{ book.get_absolute_url }}"><h3 class="card-title"><strong>{{ book.title }} </strong></h3></a>
+                                    <p class="card-text pt-3">{{ book.description|truncatewords:15 }}</p>
+                                    <p class="text-muted">نویسنده: {{ book.author }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-    {% endfor %}
+            {% endfor %}
 
 {% endblock content %}
