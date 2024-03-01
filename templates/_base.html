@@ -11,6 +11,9 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block styles %}
+
+    {% endblock styles %}
 
     <title>{% block title %}  {% endblock title %}</title>
 </head>
@@ -28,7 +31,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{% url 'book_list' %}">خانه</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'book_list' %}"> لیست کتاب ها </a>
                 <a class="nav-link" href="{% url 'book_create' %}">اضافه کردن کتاب</a>
             </div>
         </div>
@@ -39,6 +42,10 @@
                     <button type="submit" class="btn btn-info"> خروج</button>
                     </form>
             </div>
+            {% else %}
+            <a  class="text-decoration-none text-white" href="{% url 'login' %}">ورود</a>
+            <span> ***یا*** </span>
+            <a class="text-decoration-none text-white" href="{% url 'signup' %}">  ثبت نام  </a>
         {% endif %}
 
     </div>
